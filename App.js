@@ -16,12 +16,12 @@ export default function App() {
   const [request, response, promptAsync] = useAuthRequest(
     {
       usePKCE: false,
-      clientId: '7786221',
-      scopes: ['email'],
+      clientId: '7786221', //app id 
+      scopes: ['email'], //permissions
       // For usage in managed apps using the proxy
       redirectUri: makeRedirectUri({
         // For usage in bare and standalone
-        native: 'test.oauth://redirect',
+        native: 'test.oauth://redirect', //test.oauth set in app.json for android and ios
       }),
       responseType: 'code'
     },
@@ -32,8 +32,9 @@ export default function App() {
     console.log(response);
     if (response?.type === 'success') {
       const { code } = response.params;
+      // get request to backend 
       ajax.getJSON("https://spring-oauth-vk.herokuapp.com/callback/vk?code=" + code).subscribe(
-        value => console.log(value),
+        value => console.log(value), //response body (access_token, expires_id, user_id)
         error => console.log("Error:" + error),
         () => console.log("Completed"), 
       ) 
