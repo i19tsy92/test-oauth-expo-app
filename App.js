@@ -46,13 +46,10 @@ export default function App() {
   return (
     <View
       style={{}}
+    > <Text
+      style={{width: 512, height: 512}}
     >
-      <Text>Многострочный текст</Text>
-      <Text>Многострочный текст</Text>
-      <Text>Многострочный текст</Text>
-      <Text>Многострочный текст</Text>
-      <Text>Многострочный текст</Text>
-      <Text>Многострочный текст</Text>
+    </Text>
       <Button
         style={{width: 512, height: 512,  flex: 1,
           justifyContent: 'center',
